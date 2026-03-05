@@ -11,7 +11,7 @@
 
 import XCTest
 import LoggerCategories
-import CoreGraphics
+import OSLog
 
 // Private token for this module to identify the bundle where this code is compiled.
 private final class ModuleBundleToken {}
@@ -30,10 +30,10 @@ enum LogCategory: String, LogCategoryType {
 final class LoggerTests: XCTestCase {
 
     func testGeneralLog() {
-	Logger.info("Test info.", LogCategory. general)
-	Logger.trace("Test trace.", LogCategory. general)
-	Logger.warning("Test warning.", LogCategory. general)
-	Logger.error("Test error.", LogCategory. general)
-	Logger.critical("Test critical.", LogCategory. general)
+	Logger.info("Test info.", LogCategory.general)
+	Logger.trace("Test trace.", LogCategory.general)
+	Logger.warning("Test warning.", LogCategory.general)
+	Logger.error("Test error.", LogCategory.general)
+	Logger.critical("Test critical.", LogCategory.general)
     }
 }
