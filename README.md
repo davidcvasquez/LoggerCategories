@@ -8,9 +8,11 @@ A protocol for custom `Logger` categories, with an extension to `Logger` that pr
 
 The LoggerCategories library provides wrappers for the following types of `Logger` calls\:
 
-- `info`
 - `trace`
 - `debug`
+- `info`
+- `notice`
+- `warning`
 - `error`
 - `critical`
 - `fault`
