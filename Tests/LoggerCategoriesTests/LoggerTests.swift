@@ -17,6 +17,7 @@ import OSLog
 private final class ModuleBundleToken {}
 private let moduleSubsystem: String = Logging.subsystem(for: ModuleBundleToken.self)
 
+/// Apps and modules define their own list of categories as an internal `LogCategory` enum.
 enum LogCategory: String, LogCategoryType {
     case general
 
@@ -29,11 +30,14 @@ enum LogCategory: String, LogCategoryType {
 
 final class LoggerTests: XCTestCase {
 
-    func testGeneralLog() {
-	Logger.info("Test info.", LogCategory.general)
-	Logger.trace("Test trace.", LogCategory.general)
-	Logger.warning("Test warning.", LogCategory.general)
-	Logger.error("Test error.", LogCategory.general)
-	Logger.critical("Test critical.", LogCategory.general)
+    func testGeneralCategoryLog() {
+        Logger.trace("Test trace.", LogCategory.general)
+        Logger.debug("Test debug.", LogCategory.general)
+        Logger.info("Test info.", LogCategory.general)
+        Logger.notice("Test notice.", LogCategory.general)
+        Logger.warning("Test warning.", LogCategory.general)
+        Logger.error("Test error.", LogCategory.general)
+        Logger.critical("Test critical.", LogCategory.general)
+        Logger.fault("Test fault.", LogCategory.general)
     }
 }

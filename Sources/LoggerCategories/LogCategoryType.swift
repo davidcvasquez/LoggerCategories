@@ -35,21 +35,6 @@ public enum Logging {
 
 /// Extension to Logger with wrappers for each type of log entry.
 public extension Logger {
-    static func info<Category: LogCategoryType>(
-        _ message: String,
-        fileID: String = #fileID,
-        function: String = #function,
-        line: Int = #line,
-        threadDescription: String = Thread.current.description,
-        _ category: Category
-    ) {
-        let header = header(
-            category: category.name,
-            fileID: fileID, function: function, line: line,
-            threadDescription: threadDescription)
-        category.logger.info("ℹ️ Info • \(header) • \(message)")
-    }
-
     static func trace<Category: LogCategoryType>(
         _ message: String = "",
         fileID: String = #fileID,
@@ -78,6 +63,36 @@ public extension Logger {
             fileID: fileID, function: function, line: line,
             threadDescription: threadDescription)
         category.logger.debug("🔧 Debug • \(header) • \(message)")
+    }
+
+    static func info<Category: LogCategoryType>(
+        _ message: String,
+        fileID: String = #fileID,
+        function: String = #function,
+        line: Int = #line,
+        threadDescription: String = Thread.current.description,
+        _ category: Category
+    ) {
+        let header = header(
+            category: category.name,
+            fileID: fileID, function: function, line: line,
+            threadDescription: threadDescription)
+        category.logger.info("ℹ️ Info • \(header) • \(message)")
+    }
+
+    static func notice<Category: LogCategoryType>(
+        _ message: String,
+        fileID: String = #fileID,
+        function: String = #function,
+        line: Int = #line,
+        threadDescription: String = Thread.current.description,
+        _ category: Category
+    ) {
+        let header = header(
+            category: category.name,
+            fileID: fileID, function: function, line: line,
+            threadDescription: threadDescription)
+        category.logger.notice("📋 Notice • \(header) • \(message)")
     }
 
     static func warning<Category: LogCategoryType>(
@@ -132,15 +147,12 @@ public extension Logger {
         line: Int = #line,
         threadDescription: String = Thread.current.description,
         _ category: Category
-    ) -> Never {
+    ) {
         let header = header(
             category: category.name,
             fileID: fileID, function: function, line: line,
             threadDescription: threadDescription)
         category.logger.fault("🛑 FAULT • \(header) • \(message)")
-
-        // Unconditionally stops execution.
-        fatalError("End of line.")
     }
 
     private static func header(
