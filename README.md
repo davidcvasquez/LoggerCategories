@@ -1,6 +1,6 @@
 # LoggerCategories
 
-[![Swift](https://github.com/davidcvasquez/LoggerCategories/actions/workflows/swift.yml/badge.svg)](https://github.com/davidcvasquez/LoggerCategories/actions/workflows/swift.yml)
+[![Swift](https://github.com/davidcvasquez/LoggerCategories/actions/workflows/swift.yml/badge.svg)](https://github.com/davidcvasquez/LoggerCategories/actions/workflows/swift.yml) [![codecov](https://codecov.io/gh/davidcvasquez/LoggerCategories/graph/badge.svg?token=BZKWMIZ180)](https://codecov.io/gh/davidcvasquez/LoggerCategories)
 
 A protocol for custom `Logger` categories, with an extension to `Logger` that provides wrappers for each type of log entry.
 
